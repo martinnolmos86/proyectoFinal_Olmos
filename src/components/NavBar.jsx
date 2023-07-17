@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   return (
@@ -11,10 +12,7 @@ const NavBar = () => {
           <a href="#">Contacto</a>
           <a href="#">Nosotros</a>
         </div>
-        <div>
-          <i className="bi bi-cart3"></i>
-          <p>2</p>
-        </div>
+        <CartWidget />
       </StyledNav>
     </>
   );
@@ -22,7 +20,7 @@ const NavBar = () => {
 
 export default NavBar;
 
-// styles
+// STYLES
 
 const StyledNav = styled.nav`
   background-color: black;
@@ -39,18 +37,6 @@ const StyledNav = styled.nav`
       color: white;
       padding: 1rem;
       text-decoration: none;
-    }
-  }
-  div {
-    display: flex;
-    align-items: center;
-    p {
-      color: white;
-      padding: 0.5rem;
-    }
-    i {
-      color: white;
-      padding: 0.5rem;
     }
   }
 `;
