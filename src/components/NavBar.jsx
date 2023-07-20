@@ -12,6 +12,7 @@ const NavBar = () => {
           <a href="#">Producto</a>
           <a href="#">Contacto</a>
           <a href="#">Nosotros</a>
+          <a href="#">Adopta</a>
         </div>
         <CartWidget />
       </StyledNav>
@@ -36,10 +37,16 @@ const StyledNav = styled.nav`
   }
   div {
     a {
-      font-size: 1.1rem;
+      font-family: "Raleway", sans-serif;
+      font-size: 12px;
       color: white;
       padding: 1rem;
       text-decoration: none;
     }
+  }
+
+  div a:hover {
+    background-color: #fff; /* Fondo blanco en el hover */
+    color: #333; /* Cambiar el color del texto al pasar el mouse */
   }
 `;

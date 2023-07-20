@@ -24,7 +24,7 @@ const StyledCartWidget = styled.div`
     align-items: center;
     p {
       color: white;
-      padding: 1rem;
+      /* padding: 1rem; */
     }
     a i {
       font-size: 1.25rem;
