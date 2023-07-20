@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import CartWidget from "./CartWidget";
 import Assets from "../assets/logo-2.png";
+import BurguerButton from "./BurguerButton";
 
 const NavBar = () => {
   return (
@@ -15,6 +16,9 @@ const NavBar = () => {
           <a href="#">Adopta</a>
         </div>
         <CartWidget />
+        <div className="burguer">
+          <BurguerButton />
+        </div>
       </StyledNav>
     </>
   );
@@ -31,8 +35,8 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   padding: 1.2rem;
   img {
-    height: 90px;
-    width: 110px;
+    height: 100px;
+    width: 100px;
     margin-left: 1.5rem;
   }
   .div-container-a {
@@ -50,5 +54,10 @@ const StyledNav = styled.nav`
   .div-container-a a:hover {
     background-color: orange;
     color: black;
+  }
+  .burguer {
+    @media (min-width: 760px) {
+      display: none;
+    }
   }
 `;
