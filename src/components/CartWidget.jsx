@@ -23,12 +23,12 @@ const StyledCartWidget = styled.div`
     display: flex;
     align-items: center;
     p {
-      color: white;
+      color: black;
       /* padding: 1rem; */
     }
     a i {
       font-size: 1.25rem;
-      color: white;
+      color: black;
       padding: 0.5rem;
     }
   }

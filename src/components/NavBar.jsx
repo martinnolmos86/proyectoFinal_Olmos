@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import CartWidget from "./CartWidget";
-import Assets from "../assets/logo.png";
+import Assets from "../assets/logo-2.png";
 
 const NavBar = () => {
   return (
     <>
       <StyledNav>
         <img src={Assets} alt="Logo" />
-        <div>
+        <div className="div-container-a">
           <a href="#">Producto</a>
           <a href="#">Contacto</a>
           <a href="#">Nosotros</a>
@@ -25,28 +25,30 @@ export default NavBar;
 // STYLES
 
 const StyledNav = styled.nav`
-  background-color: black;
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.2rem;
   img {
-    height: 80px;
-    width: 120px;
+    height: 90px;
+    width: 110px;
     margin-left: 1.5rem;
   }
-  div {
+  .div-container-a {
     a {
       font-family: "Raleway", sans-serif;
+      font-weight: 400;
       font-size: 12px;
-      color: white;
+      color: black;
       padding: 1rem;
       text-decoration: none;
+      width: 100%;
     }
   }
 
-  div a:hover {
-    background-color: #fff; /* Fondo blanco en el hover */
-    color: #333; /* Cambiar el color del texto al pasar el mouse */
+  .div-container-a a:hover {
+    background-color: orange;
+    color: black;
   }
 `;
