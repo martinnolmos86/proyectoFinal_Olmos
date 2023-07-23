@@ -33,6 +33,7 @@ const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100px;
   padding: 1.2rem;
   img {
     height: 100px;
@@ -46,6 +47,8 @@ const StyledNav = styled.nav`
       font-size: 12px;
       color: black;
       padding: 1rem;
+      /* padding-top: 50px;
+      padding-bottom: 50px; */
       text-decoration: none;
       width: 100%;
     }
@@ -56,7 +59,7 @@ const StyledNav = styled.nav`
     color: black;
   }
   .burguer {
-    @media (min-width: 760px) {
+    @media (min-width: 768px) {
       display: none;
     }
   }
