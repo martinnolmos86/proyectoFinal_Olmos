@@ -30,6 +30,19 @@ const StyledCartWidget = styled.div`
       color: black;
       padding: 1rem;
     }
+    /* MEDIA QUERIS - en tamaño menor a 768px */
+    P {
+      @media (max-width: 768px) {
+        color: #e8a138;
+        font-size: 20px;
+      }
+    }
+    a i {
+      @media (max-width: 768px) {
+        color: #e8a138;
+        font-size: 20px;
+      }
+    }
   }
 `;
 

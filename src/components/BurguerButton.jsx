@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const BurguerButton = () => {
+const BurguerButton = (props) => {
   return (
     <>
       <Burguer>
-        <div class="icon nav-icon-5">
+        <div
+          onClick={props.handleClick}
+          className={`icon nav-icon-5 ${props.cliCled ? `open` : ``}`}
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -19,6 +22,7 @@ export default BurguerButton;
 
 const Burguer = styled.div`
   /* nav-icon-5 */
+
   .nav-icon-5 {
     width: 35px;
     height: 30px;
@@ -28,7 +32,7 @@ const Burguer = styled.div`
     display: inline-block;
   }
   .nav-icon-5 span {
-    background-color: black;
+    background-color: #e8a138;
     position: absolute;
     border-radius: 2px;
     transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
