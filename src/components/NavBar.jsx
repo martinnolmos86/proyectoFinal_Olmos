@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CartWidget from "./CartWidget";
 import Assets from "../assets/logo-2.png";
 import BurguerButton from "./BurguerButton";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [cliCked, setClicked] = useState(false);
@@ -16,19 +17,23 @@ const NavBar = () => {
   return (
     <>
       <StyledNav>
-        <img src={Assets} alt="Logo" />
+        <div className="link-img">
+          <Link to={"/"}>
+            <img src={Assets} alt="Logo" />
+          </Link>
+        </div>
         <div className={`div-container-a ${cliCked ? `active` : ``} `}>
           <a onClick={handleClick} href="#">
-            Producto
+            Dona
           </a>
           <a onClick={handleClick} href="#">
-            Contacto
+            Donacion Minima
           </a>
           <a onClick={handleClick} href="#">
             Nosotros
           </a>
           <a onClick={handleClick} href="#">
-            Dona
+            Contacto
           </a>
         </div>
         <CartWidget />
@@ -40,7 +45,6 @@ const NavBar = () => {
     </>
   );
 };
-
 export default NavBar;
 
 // STYLES
@@ -52,11 +56,17 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   height: 100px;
   padding: 1.2rem;
-  img {
+  .link-img {
     height: 100px;
     width: 100px;
     margin-left: 1.5rem;
+    img {
+      height: 100px;
+      width: 100px;
+      margin-left: 1.5rem;
+    }
   }
+
   a {
     font-family: "Raleway", sans-serif;
     font-weight: 400;

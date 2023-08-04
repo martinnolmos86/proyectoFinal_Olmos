@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Assets from "../assets/Dona-1.jpg";
 
 const Item = ({ info }) => {
   return (
@@ -9,11 +8,8 @@ const Item = ({ info }) => {
         <div className="container">
           <img src={info.img} alt="" />
           <div className="container_p">
-            <h3>
-              QUIERO
-              <br /> DONAR
-            </h3>
-            <bdi>$ 300</bdi>
+            <h3>Quiero Donar</h3>
+            <bdi>$ {info.price}</bdi>
           </div>
         </div>
       </StylesItem>
@@ -36,8 +32,9 @@ const StylesItem = styled.div`
       h3 {
         font-size: 34px;
         font-family: "Poppins", sans-serif;
-        text-decoration: none;
         color: #e8a138;
+        font-style: italic;
+        font-weight: 500;
       }
       bdi {
         font-size: 18px;

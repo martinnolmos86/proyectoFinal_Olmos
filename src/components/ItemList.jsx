@@ -13,21 +13,22 @@ const ItemList = ({ animals = [] }) => {
               Tu apoyo es muy importante para seguir brindando segundas
               oportunidades. Si tienes preguntas o quieres información
               adicional, puedes escribirnos a nuestra línea de whatsapp (57)
-              3213007486
+              3213007486.
             </p>
+            <div className="container-map">
+              {animals.map((animal) => (
+                <Item key={animal.id} info={animal} />
+              ))}
+            </div>
           </div>
         </div>
       </StylesProps>
-      <div>
-        {animals.map((animal) => (
-          <Item key={animal.id} info={animal} />
-        ))}
-      </div>
     </>
   );
 };
 
-// STYLES
+// STYLES TITULO Y PARRAFO
+
 const StylesProps = styled.p`
   .page-container {
     display: flex;
@@ -40,6 +41,13 @@ const StylesProps = styled.p`
     background-color: #ffffff;
     text-align: start;
     font-family: "Poppins", sans-serif;
+    .container-map {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+      max-width: 1100px;
+    }
   }
 
   h1 {
@@ -58,11 +66,6 @@ const StylesProps = styled.p`
       max-width: 90%; /* Ajusta el ancho máximo a un porcentaje menor */
     }
   }
-  /* p {
-      color: #333;
-      font-size: 30px;
-      font-weight: bold;
-      padding: 10px;
-    } */
 `;
+
 export default ItemList;
