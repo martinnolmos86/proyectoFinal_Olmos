@@ -3,7 +3,7 @@ import styled from "styled-components";
 import CartWidget from "./CartWidget";
 import Assets from "../assets/logo-2.png";
 import BurguerButton from "./BurguerButton";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const [cliCked, setClicked] = useState(false);
@@ -23,18 +23,28 @@ const NavBar = () => {
           </Link>
         </div>
         <div className={`div-container-a ${cliCked ? `active` : ``} `}>
-          <a onClick={handleClick} href="#">
+          <NavLink to="/" onClick={handleClick} className="custom-link">
             Dona
-          </a>
-          <a onClick={handleClick} href="#">
+          </NavLink>
+          <NavLink
+            onClick={handleClick}
+            to="/categoria/minima"
+            className="custom-link"
+          >
             Donacion Minima
-          </a>
-          <a onClick={handleClick} href="#">
-            Nosotros
-          </a>
-          <a onClick={handleClick} href="#">
+          </NavLink>
+
+          <NavLink
+            to="/categoria/maxima"
+            onClick={handleClick}
+            className="custom-link"
+          >
+            Donacion Mayor
+          </NavLink>
+
+          <NavLink to="/detail" onClick={handleClick} className="custom-link">
             Contacto
-          </a>
+          </NavLink>
         </div>
         <CartWidget />
         <div className="burguer">
@@ -67,7 +77,7 @@ const StyledNav = styled.nav`
     }
   }
 
-  a {
+  .custom-link {
     font-family: "Raleway", sans-serif;
     font-weight: 400;
     font-size: 12px;
