@@ -28,14 +28,14 @@ const NavBar = () => {
           </NavLink>
           <NavLink
             onClick={handleClick}
-            to="/categoria/minima"
+            to="/categoria/minimo"
             className="custom-link"
           >
             Donacion Minima
           </NavLink>
 
           <NavLink
-            to="/categoria/maxima"
+            to="/categoria/maximo"
             onClick={handleClick}
             className="custom-link"
           >
