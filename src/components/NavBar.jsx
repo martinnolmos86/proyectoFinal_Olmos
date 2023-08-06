@@ -42,7 +42,7 @@ const NavBar = () => {
             Donacion Mayor
           </NavLink>
 
-          <NavLink to="/detail" onClick={handleClick} className="custom-link">
+          <NavLink to="" onClick={handleClick} className="custom-link">
             Contacto
           </NavLink>
         </div>

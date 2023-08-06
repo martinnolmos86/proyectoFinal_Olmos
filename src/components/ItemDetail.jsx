@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const ItemDetail = ({ animals }) => {
   if (animals.length === 0) {
-    return;
+    return <div>Cargando...</div>;
   }
 
   const { text, price, img } = animals[0];

@@ -102,9 +102,7 @@ const ItemListContainer = () => {
       try {
         const res = await getAnimals();
         if (categoriaId) {
-          setAnimalData(
-            res.filter((animal) => animal.category === categoriaId)
-          );
+          setAnimalData(res.filter((dona) => dona.category === categoriaId));
         } else {
           setAnimalData(res);
         }

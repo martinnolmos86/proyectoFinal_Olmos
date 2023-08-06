@@ -1,17 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 const Item = ({ info }) => {
   return (
     <>
       <StylesItem>
-        <div className="container">
-          <img src={info.img} alt="" />
-          <div className="container_p">
-            <h3>Quiero Donar</h3>
-            <bdi>$ {info.price}</bdi>
+        <Link to={`/detail/${info.id}`}>
+          <div className="container">
+            <img src={info.img} alt="" />
+            <div className="container_p">
+              <h3>Quiero Donar</h3>
+              <bdi>$ {info.price}</bdi>
+            </div>
           </div>
-        </div>
+        </Link>
       </StylesItem>
     </>
   );
