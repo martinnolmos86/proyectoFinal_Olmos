@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ animals }) => {
   if (animals.length === 0) {
@@ -18,6 +19,7 @@ const ItemDetail = ({ animals }) => {
             <div>
               <h3>{text}</h3>
               <bdi>$ {price}</bdi>
+              <ItemCount />
             </div>
           </div>
         </div>
