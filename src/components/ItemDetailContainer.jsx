@@ -104,7 +104,7 @@ const ItemDetailContainer = () => {
       {animalData.length > 0 ? (
         <ItemDetail animals={animalData} />
       ) : (
-        <div>Animal no encontrado</div>
+        <div>Buscando...</div>
       )}
     </>
   );

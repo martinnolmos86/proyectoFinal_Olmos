@@ -8,19 +8,13 @@ const ItemCount = () => {
     setCount(count + 1);
   }
   function resta() {
-    setCount(count - 1);
+    if (count > 0) {
+      setCount(count - 1);
+    }
   }
-  // function reset() {
-  //   setCount(0);
-  // }
 
   return (
     <>
-      {/* <h1>El numero es: {count}</h1>
-      <button onClick={sumar}>SUMAR</button>
-      <button onClick={resta}>RESTA</button>
-      <button onClick={reset}>RESTART</button>
-      <button>Agregar al carrito</button> */}
       <StyledForm>
         <form action="" className="cart">
           <div className="divButton">
