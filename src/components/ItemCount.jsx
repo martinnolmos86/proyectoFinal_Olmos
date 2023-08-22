@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const ItemCount = () => {
+const ItemCount = ({ onAdd }) => {
   const [count, setCount] = useState(0);
 
   function sumar() {
@@ -23,10 +23,9 @@ const ItemCount = () => {
             <input type="button" value="+" className="plus" onClick={sumar} />
           </div>
           <button
-            type="submit"
-            name="add-to-cart"
-            value="6289"
+            type="button"
             className="button "
+            onClick={() => onAdd(count)}
           >
             AÑADIR AL CARRITO
           </button>

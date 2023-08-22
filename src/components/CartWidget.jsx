@@ -1,15 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useCartContext } from "../context/CartContext";
 
 const CartWidget = () => {
+  const { totalProduct } = useCartContext();
   return (
     <>
       <StyledCartWidget>
         <div>
-          <a href="#">
+          <Link to="/Cart">
             <i className="bi bi-cart3"> </i>
-          </a>
-          <p>2</p>
+          </Link>
+          {totalProduct() > 0 ? <p>{totalProduct()}</p> : null}
         </div>
       </StyledCartWidget>
     </>
