@@ -119,12 +119,12 @@ const ItemDetailContainer = () => {
           setData(docs);
         } else {
           console.error("El documento no existe.");
-          setData([]); // Podrías mostrar un mensaje de error en tu JSX
+          setData([]);
         }
       })
       .catch((error) => {
         console.error("Error:", error);
-        setData([]); // Manejo de errores
+        setData([]);
       });
   }, []);
 
