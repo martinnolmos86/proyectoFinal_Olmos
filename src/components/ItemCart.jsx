@@ -3,7 +3,7 @@ import { useCartContext } from "../context/CartContext";
 
 const ItemCart = ({ product }) => {
   const { removeCart, totalProduct } = useCartContext();
-  const { id, text, price, img, newQuantity } = product[0];
+  const { id, text, price, img, newQuantity } = product;
 
   return (
     <>

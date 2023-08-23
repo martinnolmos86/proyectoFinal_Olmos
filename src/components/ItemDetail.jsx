@@ -30,7 +30,7 @@ const ItemDetail = ({ animals }) => {
     console.log("ItemDetail se actualizó"); // Verifica si el componente se actualiza
   }, [quantityAdd]);
 
-  const { text, price, img } = animals[0];
+  const { text, price, img } = animals;
   return (
     <>
       <StyledContainer>
