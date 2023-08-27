@@ -16,7 +16,6 @@ const ItemDetail = ({ animals }) => {
     console.log(`Donaste ${cantidad}`);
     setQuantityAdd(cantidad);
     if (typeof animals === "object" && animals !== null) {
-      console.log("data es un objeto válido:", animals);
       addProduct(animals, cantidad); // El valor de data es un objeto válido
       // Puedes realizar operaciones con el objeto data aquí
     } else {
@@ -26,9 +25,7 @@ const ItemDetail = ({ animals }) => {
     }
   };
 
-  useEffect(() => {
-    console.log("ItemDetail se actualizó"); // Verifica si el componente se actualiza
-  }, [quantityAdd]);
+  useEffect(() => {}, [quantityAdd]);
 
   const { text, price, img } = animals;
   return (

@@ -28,6 +28,10 @@ export const CartProvider = ({ children }) => {
       updatedCart[existingProductIndex].newQuantity += cantidadNumerica;
       setCart(updatedCart);
     } else {
+      console.log("Adding to Cart:", [
+        ...cart,
+        { ...item, newQuantity: cantidadNumerica },
+      ]);
       setCart([...cart, { ...item, newQuantity: cantidadNumerica }]);
     }
   };
