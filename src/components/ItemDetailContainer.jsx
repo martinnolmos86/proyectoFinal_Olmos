@@ -30,7 +30,12 @@ const ItemDetailContainer = () => {
         <div>Buscando...</div>
       ) : data ? (
         <ItemDetail
-          animals={{ text: data.text, price: data.price, img: data.img }}
+          animals={{
+            id: data.id,
+            text: data.text,
+            price: data.price,
+            img: data.img,
+          }}
         />
       ) : (
         <div>El documento no existe.</div>
