@@ -23,26 +23,18 @@ const NavBar = () => {
           </Link>
         </div>
         <div className={`div-container-a ${cliCked ? `active` : ``} `}>
-          <NavLink to="/" onClick={handleClick} className="custom-link">
+          <NavLink to="/" className="custom-link">
             Dona
           </NavLink>
-          <NavLink
-            onClick={handleClick}
-            to="/categoria/minimo"
-            className="custom-link"
-          >
+          <NavLink to="/categoria/minimo" className="custom-link">
             Donacion Minima
           </NavLink>
 
-          <NavLink
-            to="/categoria/maximo"
-            onClick={handleClick}
-            className="custom-link"
-          >
+          <NavLink to="/categoria/maximo" className="custom-link">
             Donacion Mayor
           </NavLink>
 
-          <NavLink to="" onClick={handleClick} className="custom-link">
+          <NavLink to="" className="custom-link">
             Contacto
           </NavLink>
         </div>

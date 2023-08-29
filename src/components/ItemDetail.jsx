@@ -33,12 +33,17 @@ const ItemDetail = ({ animals }) => {
       <StyledContainer>
         <div className="page-container">
           <div className="container">
-            <div>
+            <div className="div-img">
               <img src={img} alt="" />
             </div>
             <div>
-              <h3>{text}</h3>
-              <bdi>$ {price}</bdi>
+              <div>
+                <h3>{text}</h3>
+              </div>
+
+              <div>
+                <bdi>$ {price}</bdi>
+              </div>
               {quantityAdd === "" ? (
                 <ItemCount onAdd={onAdd} />
               ) : (
@@ -63,20 +68,31 @@ const StyledContainer = styled.div`
     justify-content: center;
     .container {
       display: flex;
+      margin-top: 80px;
 
       max-width: 1100px;
       width: 100%;
       box-sizing: border-box;
-      img {
-        width: 500px;
-        height: 333px;
+
+      .div-img {
+        /* margin-right: 20px; */
+        img {
+          width: 500px;
+          height: 333px;
+        }
       }
       h3 {
         color: #e8a138;
         font-style: italic;
+        /* padding: 20px; */
+        font-family: "Poppins", sans-serif;
+        font-size: 26px;
       }
       bdi {
         color: #e8a138;
+        padding: 20px;
+        font-size: 16px;
+        font-family: "Poppins", sans-serif;
       }
     }
   }
