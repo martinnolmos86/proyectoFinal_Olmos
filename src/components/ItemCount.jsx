@@ -35,7 +35,7 @@ const ItemCount = ({ onAdd }) => {
   );
 };
 
-const StyledForm = styled.form`
+const StyledForm = styled.div`
   .cart {
     font-size: 16px;
     font-family: "Poppins", sans-serif;
@@ -82,6 +82,7 @@ const StyledForm = styled.form`
       border-radius: 0px;
       text-transform: uppercase;
       transition: all 0.2s;
+      margin-left: 20px;
     }
   }
 `;

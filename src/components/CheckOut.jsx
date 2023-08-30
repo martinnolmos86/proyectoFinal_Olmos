@@ -3,6 +3,7 @@ import { useCartContext } from "../context/CartContext";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const CheckOut = () => {
   const { cart, totalPrice, clearCart } = useCartContext();
@@ -51,8 +52,8 @@ const CheckOut = () => {
       addDoc(orderCollection, order)
         .then(({ id }) => {
           console.log("Orden enviada con éxito. ID de la orden:", id);
-          clearCart(); // Limpia el carrito después de enviar la orden
-          setShowForm(false); // Oculta el formulario después de enviar la orden
+          clearCart();
+          setShowForm(false);
           toast.success(`Compra Exitosa - Número de Orden: ${id}`);
           navigate(`/purchase-success/${id}`);
         })
@@ -64,68 +65,117 @@ const CheckOut = () => {
   };
   return (
     <>
-      <h2>Terminar compra</h2>
-      <h5>Por favor llenar con sus datos</h5>
+      <StyleTittle>
+        <div className="div-tittle">
+          <h2>Terminar compra</h2>
+          <h5>Por favor llenar con sus datos</h5>
+        </div>{" "}
+      </StyleTittle>
       {showForm && (
-        <form>
-          <label>
-            Nombre:
+        <StyleForm>
+          <form>
+            <p>Nombre:</p>
             <input
+              className="field"
               type="text"
               name="name"
               value={formData.name}
               onChange={handleInputChange}
               required
             />
-          </label>
-          <label>
-            Teléfono:
+            <p>Teléfono:</p>
             <input
+              className="field"
               type="tel"
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
               required
             />
-          </label>
-          <label>
-            Email:
+            <p> Email:</p>
             <input
+              className="field"
               type="email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
               required
             />
-          </label>
-          <label>
-            Repita su Email:
+            <p> Repita su Email:</p>
             <input
+              className="field"
               type="email"
               name="repeatEmail"
               value={formData.repeatEmail}
               onChange={handleInputChange}
               required
-            />
-          </label>
-          <button
-            type="button"
-            onClick={handleSubmit}
-            disabled={
-              !(
-                formData.name &&
-                formData.email &&
-                formData.repeatEmail &&
-                formData.phone &&
-                formData.email === formData.repeatEmail
-              )
-            }
-          >
-            Finalizar Compra
-          </button>
-        </form>
+            />{" "}
+            <button
+              className="center-content"
+              type="button"
+              onClick={handleSubmit}
+              disabled={
+                !(
+                  formData.name &&
+                  formData.email &&
+                  formData.repeatEmail &&
+                  formData.phone &&
+                  formData.email === formData.repeatEmail
+                )
+              }
+            >
+              Finalizar Compra
+            </button>
+          </form>
+        </StyleForm>
       )}
     </>
   );
 };
+const StyleForm = styled.div`
+  form {
+    width: 400px;
+    background: #24303c;
+    padding: 30px;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 7px 13px 37px #000;
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 4px;
+    color: white;
+    .field {
+      width: 100%;
+      background: #24303c;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      border: 1px solid #1f53c5;
+      font-size: 18px;
+    }
+    button {
+      width: 100%;
+      background: #1f53c5;
+      border: none;
+      padding: 12px;
+      color: white;
+      margin: 16px 0;
+      font-size: 16px;
+    }
+  }
+`;
+const StyleTittle = styled.div`
+  .div-tittle {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    h2 {
+      font-size: 40px;
+      font-weight: 600;
+    }
+    h5 {
+      font-size: 25px;
+      font-weight: 400;
+    }
+  }
+`;
+
 export default CheckOut;

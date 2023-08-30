@@ -1,80 +1,173 @@
-import React, { useState } from "react";
 import { useCartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import ItemCart from "./ItemCart";
-import { collection, getFirestore, addDoc } from "firebase/firestore";
-import Swal from "sweetalert2";
+import styled from "styled-components";
 
 const Cart = () => {
-  const { cart, totalPrice, clearCart } = useCartContext();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-  });
+  const { cart, totalPrice } = useCartContext();
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const order = {
-    buyer: {
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-    },
-    items: cart.map((product) => ({
-      id: product.id || "",
-      title: product.title || "",
-      price: product.price || 0,
-      quantity: product.quantity || 0,
-    })),
-    total: totalPrice(),
-  };
-
-  const handleSubmit = () => {
-    if (formData.name && formData.email && formData.phone) {
-      const db = getFirestore();
-      const orderCollection = collection(db, "orders");
-      addDoc(orderCollection, order)
-        .then(({ id }) => {
-          console.log("Orden enviada con éxito. ID de la orden:", id);
-          clearCart(); // Limpia el carrito después de enviar la orden
-          setShowForm(false); // Oculta el formulario después de enviar la orden
-          // Puedes redirigir al usuario a una página de confirmación aquí si lo deseas.
-          Swal.fire({
-            icon: "success",
-            title: "Compra Exitosa",
-            text: `Número de Orden: ${id}`,
-          });
-        })
-
-        .catch((error) => {
-          console.error("Error al enviar la orden:", error);
-        });
-    }
-  };
   if (cart.length === 0) {
     return (
       <>
-        <p>Tu carrito está vacío.</p>
-        <Link to="/">Volver a la tienda</Link>
+        <StyledCart>
+          <div className="container-vacio">
+            <p>Tu carrito está vacío.</p>
+            <Link className="backButton" to="/">
+              Volver a la tienda
+            </Link>
+          </div>{" "}
+        </StyledCart>
       </>
     );
   }
   return (
     <>
-      {cart.map((product) => (
-        <ItemCart key={product.id} product={product} />
-      ))}
-      <p>Total:{totalPrice()}</p>
-      <Link to="/checkout">Emitir Compra</Link>
+      <CartStyled>
+        <div className="container-complete">
+          <div className="tittle">
+            <h2>Item In Your Cart</h2>
+          </div>
+          <hr className="hr" />
+          <div className="tittle-product">
+            <div className="div-1">
+              <p>Producto</p>
+            </div>
+            <div className="div-3">
+              <p>Precio</p>
+              <p>Cantidad</p>
+              <p>Subtotal</p>
+            </div>
+          </div>
+          <hr className="hr" />
+
+          <div className="container-map">
+            {cart.map((product) => (
+              <ItemCart key={product.id} product={product} />
+            ))}
+          </div>
+          <div className="container-total">
+            <h2>Total del carrito</h2>
+            <hr />
+            <div className="div-p">
+              <p>Total</p>
+              <p>{totalPrice()}</p>
+            </div>
+            <div className="div-btn">
+              <Link to="/checkout" className="button">
+                Emitir Compra
+              </Link>
+            </div>
+          </div>
+        </div>
+      </CartStyled>
     </>
   );
 };
+
+// ESTILOS CARRITO CON PRODUCTOS
+const CartStyled = styled.div`
+  .container-complete {
+    margin: 0 auto;
+    width: 80%;
+    .hr {
+      margin-top: 30px;
+    }
+    .tittle-product {
+      justify-content: space-between;
+      display: flex;
+      font-family: "Poppins", sans-serif;
+      font-weight: 500;
+      margin-top: 10px;
+      p {
+        font-size: 13.4px;
+      }
+      .div-3 {
+        display: flex;
+        height: 50%;
+      }
+      .div-3 p {
+        margin: 0 58px;
+      }
+      .div-1 {
+        height: 50%;
+      }
+    }
+  }
+  .container-map {
+    margin-top: 40px;
+  }
+  .tittle {
+    font-family: "Poppins", sans-serif;
+    height: 70px;
+    h2 {
+      font-size: 50px;
+      font-weight: 500;
+      padding: 20px;
+    }
+  }
+  .container-total {
+    width: 50%;
+    font-family: "Poppins", sans-serif;
+    h2 {
+      font-size: 50px;
+      font-weight: 500;
+    }
+    .div-p {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    .div-btn {
+      margin-top: 20px;
+
+      .button {
+        text-decoration: none;
+        background-color: #3d434c;
+        color: #ffffff;
+        width: 193px;
+        height: 43px;
+        border-color: #ffffff;
+        text-align: center;
+        margin: 0;
+        cursor: pointer;
+        padding: 13px 29px;
+        line-height: 17px;
+        font-size: 14px;
+        font-weight: 400;
+        font-style: normal;
+        letter-spacing: 0px;
+        border-width: 0px;
+        border-style: solid;
+        border-radius: 0px;
+        text-transform: uppercase;
+        transition: all 0.2s;
+        margin-left: 20px;
+      }
+    }
+  }
+`;
+
+// ESTILOS CARRITO VACIO
+const StyledCart = styled.div`
+  .container-vacio {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    width: 80%;
+    margin: 0 auto;
+    font-family: "Poppins", sans-serif;
+
+    p {
+      font-size: 18px;
+      color: #808080;
+      font-weight: 500;
+    }
+    .backButton {
+      text-decoration: none;
+      color: #e8a138;
+      font-size: 16px;
+    }
+  }
+`;
 
 export default Cart;

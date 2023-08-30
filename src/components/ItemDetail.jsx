@@ -13,15 +13,11 @@ const ItemDetail = ({ animals }) => {
   const { addProduct } = useCartContext();
 
   const onAdd = (cantidad) => {
-    console.log(`Donaste ${cantidad}`);
     setQuantityAdd(cantidad);
     if (typeof animals === "object" && animals !== null) {
-      addProduct(animals, cantidad); // El valor de data es un objeto válido
-      // Puedes realizar operaciones con el objeto data aquí
+      addProduct(animals, cantidad);
     } else {
       console.error("data no es un objeto válido o es nulo");
-      // El valor de data no es un objeto válido o es nulo
-      // Puedes manejar este caso de manera adecuada, como mostrar un mensaje de error
     }
   };
 
@@ -36,7 +32,7 @@ const ItemDetail = ({ animals }) => {
             <div className="div-img">
               <img src={img} alt="" />
             </div>
-            <div>
+            <div className="container-text">
               <div>
                 <h3>{text}</h3>
               </div>
@@ -44,13 +40,19 @@ const ItemDetail = ({ animals }) => {
               <div>
                 <bdi>$ {price}</bdi>
               </div>
-              {quantityAdd === "" ? (
-                <ItemCount onAdd={onAdd} />
-              ) : (
-                <div>
-                  <Link to="/Cart"> Ir al carrito</Link>
-                </div>
-              )}
+              <hr />
+              <div className="container-itemcount">
+                {quantityAdd === "" ? (
+                  <ItemCount onAdd={onAdd} />
+                ) : (
+                  <div>
+                    <Link to="/Cart" className="toCart">
+                      {" "}
+                      Ir al carrito
+                    </Link>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -69,30 +71,41 @@ const StyledContainer = styled.div`
     .container {
       display: flex;
       margin-top: 80px;
-
       max-width: 1100px;
       width: 100%;
       box-sizing: border-box;
-
+      .container-itemcount {
+        margin-top: 50px;
+        .toCart {
+          color: #e8a138;
+          font-family: "Poppins", sans-serif;
+          font-size: 16px;
+          text-decoration: none;
+        }
+      }
+      hr {
+        margin-top: 40px;
+      }
       .div-img {
-        /* margin-right: 20px; */
         img {
           width: 500px;
           height: 333px;
         }
       }
-      h3 {
-        color: #e8a138;
-        font-style: italic;
-        /* padding: 20px; */
+      .container-text {
         font-family: "Poppins", sans-serif;
-        font-size: 26px;
-      }
-      bdi {
+        margin-left: 20px;
         color: #e8a138;
-        padding: 20px;
-        font-size: 16px;
-        font-family: "Poppins", sans-serif;
+
+        h3 {
+          font-style: italic;
+          font-size: 26px;
+          font-weight: 500;
+        }
+        bdi {
+          margin-top: 25px;
+          font-size: 16px;
+        }
       }
     }
   }

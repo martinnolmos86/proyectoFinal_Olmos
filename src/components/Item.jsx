@@ -5,7 +5,7 @@ const Item = ({ info }) => {
   return (
     <>
       <StylesItem>
-        <Link to={`/detail/${info.id}`}>
+        <Link to={`/detail/${info.id}`} className="Link">
           <div className="container">
             <img src={info.img} alt="" />
             <div className="container_p">
@@ -20,11 +20,15 @@ const Item = ({ info }) => {
 };
 
 const StylesItem = styled.div`
+  .Link {
+    text-decoration: none;
+  }
   .container {
     width: 264.5px;
     height: 333.56px;
     border: 12px;
     text-align: center;
+
     img {
       height: 162px;
       width: 244px;

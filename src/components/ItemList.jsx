@@ -29,7 +29,7 @@ const ItemList = ({ animals = [] }) => {
 
 // STYLES TITULO Y PARRAFO
 
-const StylesProps = styled.p`
+const StylesProps = styled.div`
   .page-container {
     display: flex;
     justify-content: center;

@@ -28,10 +28,11 @@ export const CartProvider = ({ children }) => {
       updatedCart[existingProductIndex].newQuantity += cantidadNumerica;
       setCart(updatedCart);
     } else {
-      console.log("Adding to Cart:", [
-        ...cart,
-        { ...item, newQuantity: cantidadNumerica },
-      ]);
+      // console.log("Adding to Cart:",
+      //  [
+      //   ...cart,
+      //   { ...item, newQuantity: cantidadNumerica },
+      // ]);
       setCart([...cart, { ...item, newQuantity: cantidadNumerica }]);
     }
   };
@@ -45,8 +46,6 @@ export const CartProvider = ({ children }) => {
     cart.reduce((acumulador, producActual) => {
       return acumulador + producActual.newQuantity;
     }, 0);
-
-  console.log(cart);
 
   return (
     <CartContext.Provider
