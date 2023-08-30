@@ -84,9 +84,10 @@ const CartStyled = styled.div`
       .div-3 {
         display: flex;
         height: 50%;
+        margin-right: 100px;
       }
       .div-3 p {
-        margin: 0 58px;
+        margin: 0 60px;
       }
       .div-1 {
         height: 50%;
