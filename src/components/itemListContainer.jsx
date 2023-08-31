@@ -45,9 +45,12 @@ const ItemListContainer = () => {
         });
     }
   }, [categoriaId]);
+  const sortByPrice = (items) => {
+    return items.slice().sort((a, b) => a.price - b.price);
+  };
   return (
     <>
-      <ItemList animals={data} />
+      <ItemList animals={sortByPrice(data)} />
     </>
   );
 };
