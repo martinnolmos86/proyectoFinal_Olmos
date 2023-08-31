@@ -149,12 +149,12 @@ const StyleForm = styled.div`
       padding: 10px;
       border-radius: 4px;
       margin-bottom: 16px;
-      border: 1px solid #1f53c5;
+      border: 1px solid white;
       font-size: 18px;
     }
     button {
       width: 100%;
-      background: #1f53c5;
+      background: #e8a138;
       border: none;
       padding: 12px;
       color: white;
