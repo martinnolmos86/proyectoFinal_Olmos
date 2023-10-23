@@ -9,7 +9,7 @@ import {
   where,
 } from "firebase/firestore";
 
-const ItemListContainer = () => {
+const temListContainer = () => {
   const [data, setData] = useState([]);
 
   const { categoriaId } = useParams();
